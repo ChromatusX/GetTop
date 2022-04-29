@@ -25,3 +25,28 @@ def verify_message(context):
 @then('Verify item {item}')
 def verify_items(context, item):
     context.app.verification.verify_item(item)
+
+
+@given('Open account page')
+def open_account(context):
+    context.app.main_page.open_url('/my-account/')
+
+
+@then('Input valid email {email}')
+def email_input(context, email):
+    context.app.header.input_email(email)
+
+
+@then('Input password {password}')
+def pass_input(context, password):
+    context.app.header.input_pass(password)
+
+
+@then('Click login button')
+def acc_click_login_button(context):
+    context.app.header.account_login_button_click()
+
+
+@then('Verify expected error message {message}')
+def verify_acc_error_message(context, message):
+    context.app.verification.verify_acc_error_message(message)
