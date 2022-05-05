@@ -50,3 +50,23 @@ def acc_click_login_button(context):
 @then('Verify expected error message {message}')
 def verify_acc_error_message(context, message):
     context.app.verification.verify_acc_error_message(message)
+
+
+@given('Open lost password page')
+def open_account(context):
+    context.app.main_page.open_url('/my-account/lost-password/')
+
+
+@then('Insert input {userinput} on lost password field')
+def lost_pass_input(context, userinput):
+    context.app.header.lost_pass_input(userinput)
+
+
+@then('Click reset password button')
+def reset_pass_button(context):
+    context.app.header.click_reset_pass_button()
+
+
+@then('Verify lost password error message {message}')
+def verify_lost_pass_error_message(context, message):
+    context.app.verification.verify_reset_pass_error_message(message)

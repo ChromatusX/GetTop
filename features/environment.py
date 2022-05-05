@@ -1,13 +1,20 @@
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from app.Application import Application
+from selenium.webdriver.chrome.options import Options
 
 
 def browser_init(context):
 
+    #headless mode
+    #chrome_options = Options()
+    #chrome_options.headless = True
+    #context.driver = webdriver.Chrome(options=chrome_options)
+
     context.driver = webdriver.Chrome()
     # context.browser = webdriver.Safari()
-    # context.browser = webdriver.Firefox()
+    #context.driver = webdriver.Firefox()
+
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)
